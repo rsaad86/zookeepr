@@ -1,9 +1,11 @@
 const path = require("path");
 const router = require("express").Router();
-const animalRoutes = require("../apiRoutes/animalRoutes");
+const animalRoutes = require("../apiRoutes/animalRoutes.js");
+const zookeeperRoutes = require("../zookeeperRoutes/zookeeperRoutes.js");
 router.use(require("./zookeeperRoutes"));
 
 router.use(animalRoutes);
+router.use(zookeeperRoutes);
 
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/index.html"));
